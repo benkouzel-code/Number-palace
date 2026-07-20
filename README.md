@@ -2,8 +2,8 @@
 
 Number Palace is a browser memory game that turns digits into vivid scenes.
 Every player assigns a noun, adjective, and verb to the digits 0–9. Sequences
-are grouped into memorable adjective → noun → verb rooms such as “golden Robin
-Hood praying.”
+are grouped into memorable noun → adjective → verb rooms such as “Robin Hood ·
+golden · praying.”
 
 The game includes:
 
@@ -32,13 +32,13 @@ development server.
 
 Number Palace repeats this three-position pattern:
 
-1. adjective
-2. noun
+1. noun
+2. adjective
 3. verb
 
 For the sequence `201`, the default mythic demo produces:
 
-> golden Hercules singing
+> Robin Hood · burning · singing
 
 The stranger and more animated the mental image, the easier it is to retrieve
 the exact digits later.

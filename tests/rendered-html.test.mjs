@@ -46,6 +46,10 @@ test("ships the requested game modes and removes the starter preview", async () 
   ]);
 
   assert.match(game, /number-palace-v1/);
+  assert.match(
+    game,
+    /const ROLE_PATTERN: WordRole\[\] = \["noun", "adjective", "verb"\]/,
+  );
   assert.match(game, /Hercules/);
   assert.match(game, /Cthulhu/);
   assert.match(game, /Robin Hood/);
@@ -55,6 +59,8 @@ test("ships the requested game modes and removes the starter preview", async () 
   assert.match(game, /Tier 2/);
   assert.match(game, /Tier 3/);
   assert.match(game, /Sequence names must be unique/);
+  assert.match(game, /How would you like to recall it\?/);
+  assert.doesNotMatch(game, /How do you want to walk it\?/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
 
   await assert.rejects(

@@ -43,7 +43,7 @@ type View = "login" | "setup" | "home" | "saved" | "codex";
 type PracticeMode = "digit" | "whole" | null;
 
 const STORAGE_KEY = "number-palace-v1";
-const ROLE_PATTERN: WordRole[] = ["adjective", "noun", "verb"];
+const ROLE_PATTERN: WordRole[] = ["noun", "adjective", "verb"];
 
 const MYTHIC_WORDS = {
   nouns: [
@@ -555,7 +555,7 @@ export default function NumberPalaceGame() {
     setWholeGuess("");
     if (nextAttempts >= 3) {
       setAnswerRevealed(true);
-      setWholeFeedback("The palace reveals the route. Walk it once more.");
+      setWholeFeedback("The palace reveals the route. Review it once more.");
       finishPractice(false, 3);
     } else {
       setWholeFeedback(
@@ -616,9 +616,9 @@ export default function NumberPalaceGame() {
             let the impossible scene remember for you.
           </blockquote>
           <div className="scene-formula" aria-label="Scene formula">
-            <span>Adjective</span>
-            <b>+</b>
             <span>Noun</span>
+            <b>+</b>
+            <span>Adjective</span>
             <b>+</b>
             <span>Verb</span>
           </div>
@@ -749,13 +749,13 @@ export default function NumberPalaceGame() {
                 Give every digit a <em>vivid identity.</em>
               </h1>
               <p>
-                Each three-digit room becomes an adjective, a noun, and a verb:
-                “golden Robin Hood praying.” Strange, specific images stick.
+                Each three-digit room becomes a noun, an adjective, and a verb:
+                “Robin Hood · golden · praying.” Strange, specific images stick.
               </p>
             </div>
             <div className="pattern-card">
               <span>Scene pattern</span>
-              <b>ADJ → NOUN → VERB</b>
+              <b>NOUN → ADJ → VERB</b>
               <small>then repeat for the next room</small>
             </div>
           </div>
@@ -1003,8 +1003,8 @@ export default function NumberPalaceGame() {
                 <em>Recall the digits.</em>
               </h1>
               <p>
-                Three digits become one impossible moment. Walk the rooms, make
-                it vivid, and let your palace hold the sequence.
+                Three digits become one impossible moment. Build each room,
+                make it vivid, and let your palace hold the sequence.
               </p>
               <div className="hero-stats">
                 <div>
@@ -1024,11 +1024,11 @@ export default function NumberPalaceGame() {
             <div className="hero-art" aria-label="The moonlit Number Palace">
               <div className="floating-note note-one">
                 <span>Scene 01</span>
-                <b>golden · Robin Hood · praying</b>
+                <b>Robin Hood · golden · praying</b>
               </div>
               <div className="floating-note note-two">
                 <span>Your pattern</span>
-                <b>ADJ → NOUN → VERB</b>
+                <b>NOUN → ADJ → VERB</b>
               </div>
             </div>
           </section>
@@ -1121,7 +1121,7 @@ export default function NumberPalaceGame() {
                   <div className="recommendation">
                     <span aria-hidden="true">✦</span>
                     <p>
-                      Multiples of 3 make complete adjective–noun–verb scenes.
+                      Multiples of 3 make complete noun–adjective–verb scenes.
                     </p>
                   </div>
                   <button
@@ -1233,7 +1233,7 @@ export default function NumberPalaceGame() {
               </div>
               <div className="practice-choice">
                 <div>
-                  <p>How do you want to walk it?</p>
+                  <p>How would you like to recall it?</p>
                   <small>The sequence disappears when practice begins.</small>
                 </div>
                 <button
@@ -1274,7 +1274,7 @@ export default function NumberPalaceGame() {
               <div>
                 <p className="section-kicker">
                   {practiceMode === "digit"
-                    ? "Guided room walk"
+                    ? "Guided recall"
                     : "Whole route recall"}
                 </p>
                 <h2>{activeSequence.name}</h2>
@@ -1305,7 +1305,7 @@ export default function NumberPalaceGame() {
                 <h3>
                   {practiceSuccess
                     ? "The palace remembers."
-                    : "Take another walk through the scene."}
+                    : "Review the scene, then try again."}
                 </h3>
                 <div className="answer-strip">
                   {activeSequence.sequence.split("").map((digit, index) => (
@@ -1436,13 +1436,13 @@ export default function NumberPalaceGame() {
                             {
                               profile.codex[
                                 Number(activeSequence.sequence[digitIndex])
-                              ].adjective
+                              ].noun
                             }{" "}
                             ·{" "}
                             {
                               profile.codex[
                                 Number(activeSequence.sequence[digitIndex])
-                              ].noun
+                              ].adjective
                             }{" "}
                             ·{" "}
                             {
@@ -1480,7 +1480,7 @@ export default function NumberPalaceGame() {
                   ))}
                 </div>
                 <div className="whole-prompt">
-                  <p>Walk the palace from the first room to the last.</p>
+                  <p>Recall the palace from the first room to the last.</p>
                   <h3>Enter all {activeSequence.sequence.length} digits</h3>
                 </div>
                 <form className="whole-form" onSubmit={submitWhole}>
