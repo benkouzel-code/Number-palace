@@ -36,8 +36,8 @@ Repository: [benkouzel-code/Number-palace](https://github.com/benkouzel-code/Num
 - [x] Sign in to GitHub.
 - [x] Create the `benkouzel-code/Number-palace` repository.
 - [x] Make it **public** for the simplest judging path.
-- [ ] Add the GitHub repository as the local `origin`.
-- [ ] Merge the initial GitHub commit with the local project history.
+- [x] Add the GitHub repository as the local `origin`.
+- [x] Merge the initial GitHub commit with the local project history.
 - [ ] Push the `main` branch.
 - [x] Add the repository URL to `README.md` and
   `docs/devpost-submission.md`.
