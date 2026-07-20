@@ -98,7 +98,7 @@ No credentials or sample-data import are required.
 ## Submission URLs and IDs
 
 - Working project: https://number-palace-memory-game.benkouzel372105.chatgpt.site/
-- Code repository: [ADD PUBLIC GITHUB REPOSITORY URL]
+- Code repository: https://github.com/benkouzel-code/Number-palace
 - Public YouTube demo: [ADD PUBLIC YOUTUBE VIDEO URL]
 - `/feedback` Codex Session ID: [ADD FEEDBACK RECEIPT ID]
 - Core technical task reference: `019f7f72-c383-7112-a785-56f57afdfbfa`

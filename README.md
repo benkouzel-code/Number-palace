@@ -65,8 +65,8 @@ Prerequisites:
 - npm
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/number-palace.git
-cd number-palace
+git clone https://github.com/benkouzel-code/Number-palace.git
+cd Number-palace
 npm install
 npm run dev
 ```

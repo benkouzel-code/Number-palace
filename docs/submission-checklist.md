@@ -31,16 +31,15 @@ Core technical task reference:
 
 ## 3. Publish to GitHub
 
-Recommended repository name: `number-palace`
+Repository: [benkouzel-code/Number-palace](https://github.com/benkouzel-code/Number-palace)
 
-- [ ] **Manual:** Connect a GitHub account to the GitHub integration in Codex.
-- [ ] Create a new repository named `number-palace`.
-- [ ] Make it **public** for the simplest judging path.
-- [ ] Do not initialize it with a second README or license; both already exist
-  locally.
+- [x] Sign in to GitHub.
+- [x] Create the `benkouzel-code/Number-palace` repository.
+- [x] Make it **public** for the simplest judging path.
 - [ ] Add the GitHub repository as the local `origin`.
+- [ ] Merge the initial GitHub commit with the local project history.
 - [ ] Push the `main` branch.
-- [ ] Add the repository URL to `README.md` and
+- [x] Add the repository URL to `README.md` and
   `docs/devpost-submission.md`.
 - [ ] Add the suggested repository topics:
   `education`, `memory-training`, `mnemonics`, `browser-game`, `react`,
