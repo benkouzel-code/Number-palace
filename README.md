@@ -1,66 +1,157 @@
 # Number Palace
 
-Number Palace is a browser memory game that turns digits into vivid scenes.
-Every player assigns a noun, adjective, and verb to the digits 0–9. Sequences
-are grouped into memorable noun → adjective → verb rooms such as “Robin Hood ·
-golden · praying.”
+![Number Palace banner](public/og.png)
 
-The game includes:
+Number Palace is an educational browser game that turns exact number sequences
+into vivid mental scenes. Each player assigns a noun, adjective, and verb to
+every digit from 0 through 9. The game then groups sequences into memorable
+`noun -> adjective -> verb` scenes and helps the player practice recalling the
+original digits.
 
-- device-local player profiles and individual master lists
-- three editable example codices for a fast start
-- random number hashes from 3–36 digits, with multiples of 3 recommended
-- named custom sequences with unique-name validation
-- a guided number-by-number mode with three progressive hint tiers
-- a whole-sequence mode that reveals the answer after three missed attempts
-- saved routes, practice stats, responsive layouts, and keyboard-friendly forms
+**Contest track:** Education
 
-## Quick start
+**Live preview:** [number-palace-memory-game.benkouzel372105.chatgpt.site](https://number-palace-memory-game.benkouzel372105.chatgpt.site/)
 
-Prerequisite: Node.js 22.13 or newer.
+## Why it exists
 
-```bash
-npm install
-npm run dev
-npm run build
-```
+Long number sequences are abstract and easy to lose. A strange image such as
+"Robin Hood, golden, praying" is much easier to picture. Number Palace gives
+players a repeatable personal vocabulary for converting digits into those
+images, then adds focused recall practice and progress tracking.
 
-Open [http://localhost:3000](http://localhost:3000) after starting the
-development server.
+## Features
 
-## How memory scenes work
+- Device-local player profiles with separate master word lists and progress
+- Three selectable example codices for a quick start
+- Fully editable custom noun, adjective, and verb mappings for digits 0-9
+- Random number hashes from 3-36 digits
+- A multiple-of-three recommendation for complete memory scenes
+- Named custom sequences for repeatedly practicing important combinations
+- Scene playback in a consistent noun, adjective, verb order
+- Number-by-number recall with three progressive hint tiers
+- Whole-sequence recall with answer reveal after three missed attempts
+- Saved routes, practice statistics, responsive layouts, and keyboard-friendly
+  forms
 
-Number Palace repeats this three-position pattern:
+## How the memory system works
+
+Every position repeats the same role pattern:
 
 1. noun
 2. adjective
 3. verb
 
-For the sequence `201`, the default mythic demo produces:
+The included Mythic demo starts with this sample data:
 
-> Robin Hood · burning · singing
+| Digit | Noun | Adjective | Verb |
+| --- | --- | --- | --- |
+| 0 | Hercules | burning | lifting |
+| 1 | Cthulhu | frozen | singing |
+| 2 | Robin Hood | golden | praying |
 
-The stranger and more animated the mental image, the easier it is to retrieve
-the exact digits later.
+For the sequence `201`, Number Palace plays:
 
-## Profiles and data
+> Robin Hood, burning, singing.
 
-Player profiles are lightweight local profiles, not password-protected
-accounts. Codices, saved routes, and practice records are stored in the
-browser’s `localStorage` under `number-palace-v1`, so they remain on the same
-browser and device. Use the quick demo to enter immediately with the mythic
-example list.
+Those three scene elements still encode the exact digits `2`, `0`, and `1`
+because each position has a known role. The stranger and more animated the
+mental image, the easier it is to retrieve later.
 
-## Project structure
+## Quick start
 
-- `app/NumberPalaceGame.tsx` contains the game flow and local persistence.
-- `app/globals.css` contains the responsive visual system and interactions.
-- `public/number-palace-environment.png` is the original generated game art.
-- `.openai/hosting.json` contains Sites deployment metadata.
+Prerequisites:
 
-## Notes
+- Node.js 22.13 or newer
+- npm
 
-- Clearing site data removes local profiles.
-- Do not treat saved number sequences as securely stored secrets.
-- The app is built with Next-compatible React through Vinext for Cloudflare
-  Workers deployment.
+```bash
+git clone https://github.com/YOUR_GITHUB_USERNAME/number-palace.git
+cd number-palace
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+To try the project without creating a custom master list:
+
+1. Select **Enter the quick demo** on the welcome screen.
+2. Generate a 6-digit route or enter your own digits.
+3. Read the generated rooms from left to right.
+4. Choose **Number by number** or **Whole sequence**.
+
+## Validation
+
+```bash
+npm run lint
+npm test
+```
+
+`npm test` creates a production build and runs a rendered-HTML smoke test.
+
+## Technology
+
+- React 19 and TypeScript
+- Next-compatible routing through Vinext
+- Vite and Tailwind CSS 4
+- Cloudflare Workers deployment through OpenAI Sites
+- Browser `localStorage` for profiles and practice data
+- Original environment art created with OpenAI image generation
+
+## How Codex accelerated the build
+
+Codex was the primary development workspace for Number Palace. It helped turn
+the initial learning-game brief into a working product by:
+
+- translating the mnemonic rules into typed game state and recall logic
+- building the responsive interface and the two practice flows
+- generating and integrating original visual assets
+- catching inconsistencies in role order and making playback, configuration,
+  and hints use the same noun-adjective-verb convention
+- adding validation, tests, deployment configuration, and submission
+  documentation
+
+GPT-5.6 in Codex was used for the implementation and refinement workflow:
+reasoning through the memory-model design, making cross-file changes, checking
+the completed experience, and preparing it for judging. Important product
+decisions remained explicit and human-directed: use a stable three-role order,
+recommend sequence lengths divisible by three, reveal hints progressively, and
+keep the first version private-by-default with device-local data.
+
+## Architecture and data
+
+The app is intentionally local-first. A `PlayerProfile` contains the player's
+codex, named sequences, and practice statistics. The complete store is saved
+under the browser key `number-palace-v1`.
+
+Relevant files:
+
+- `app/NumberPalaceGame.tsx` - game state, setup, sequence generation, practice,
+  statistics, and local persistence
+- `app/globals.css` - responsive visual system and interactions
+- `app/page.tsx` - application entry point
+- `public/number-palace-environment.png` - original generated environment art
+- `tests/rendered-html.test.mjs` - production-render smoke test
+- `.openai/hosting.json` - Sites deployment metadata
+
+## Privacy and current limitations
+
+- Profiles are lightweight local player profiles, not password-protected online
+  accounts.
+- Data stays in the current browser and device.
+- Clearing site data removes local profiles and saved routes.
+- Saved sequences should not be treated as securely stored secrets.
+- There is no cloud sync or multiplayer mode in this version.
+
+## Contest materials
+
+Submission-ready copy, the recording outline, and the final release checklist
+are in [`docs/`](docs/):
+
+- [`devpost-submission.md`](docs/devpost-submission.md)
+- [`demo-video-script.md`](docs/demo-video-script.md)
+- [`submission-checklist.md`](docs/submission-checklist.md)
+
+## License
+
+Number Palace is available under the [MIT License](LICENSE).
